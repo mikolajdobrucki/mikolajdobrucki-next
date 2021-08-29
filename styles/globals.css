@@ -14,3 +14,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.header {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 12px 10px;
+  font-size: 25px;
+}
+
+main {
+  max-width: 80%;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
