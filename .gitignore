@@ -35,3 +35,4 @@ yarn-error.log*
 
 # sanity
 /studio/node_modules
+/studio/dist
