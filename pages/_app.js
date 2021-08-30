@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         </div>
       </nav>
       <main>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </main>
     </>
   );
