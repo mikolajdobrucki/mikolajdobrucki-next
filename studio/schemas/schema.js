@@ -7,6 +7,7 @@ import chef from "./chef";
 import ingredient from "./ingredient";
 import recipe from "./recipe";
 import siteSettings from "./siteSettings";
+import article from "./article";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -16,6 +17,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
+    article,
     chef,
     ingredient,
     recipe,
