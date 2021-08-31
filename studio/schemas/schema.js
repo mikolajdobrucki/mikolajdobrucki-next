@@ -8,6 +8,8 @@ import ingredient from "./ingredient";
 import recipe from "./recipe";
 import siteSettings from "./siteSettings";
 import article from "./article";
+import talk from "./talk";
+import project from "./project";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -18,6 +20,8 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     article,
+    talk,
+    project,
     chef,
     ingredient,
     recipe,
