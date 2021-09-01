@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
   name: "project",
-  title: "Side project",
+  title: "Side projects",
   type: "document",
   fields: [
     {
