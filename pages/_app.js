@@ -1,21 +1,12 @@
 import Link from "next/link";
+import { sanityClient } from "../lib/sanity";
 import "../styles/globals.css";
+import Header from "../components/header";
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <nav className="header">
-        <div>
-          <Link href="/">
-            <a>Mikolaj Kitchen</a>
-          </Link>
-        </div>
-      </nav>
-      <main>
-        <Component {...pageProps} />
-      </main>
-    </>
+    <div className="container">
+      <Component {...pageProps} />
+    </div>
   );
 }
-
-export default MyApp;
