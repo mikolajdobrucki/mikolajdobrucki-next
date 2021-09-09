@@ -3,9 +3,6 @@ import createSchema from "part:@sanity/base/schema-creator";
 
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
-import chef from "./chef";
-import ingredient from "./ingredient";
-import recipe from "./recipe";
 import siteSettings from "./siteSettings";
 import article from "./article";
 import talk from "./talk";
@@ -22,9 +19,6 @@ export default createSchema({
     article,
     talk,
     project,
-    chef,
-    ingredient,
-    recipe,
     siteSettings,
   ]),
 });

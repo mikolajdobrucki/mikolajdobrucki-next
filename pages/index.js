@@ -4,14 +4,7 @@ import styles from "../styles/Home.module.css";
 import { sanityClient, urlFor } from "../lib/sanity";
 import Header from "../components/header";
 import { useState } from "react";
-import ReactDOM from 'react-dom';
-
-const recipesQuery = `*[_type == "recipe"]{
-  _id,
-  name,
-  slug,
-  mainImage
-}`;
+import ReactDOM from "react-dom";
 
 const settingsQuery = `*[_type == "siteSettings"][0]{
   title,
@@ -34,35 +27,33 @@ const talksQuery = `*[_type == "talk"]{
   image,
   date,
   url
-}`
+}`;
 
 const projectsQuery = `*[_type == "project"]{
   _id,
   name,
   description,
   url
-}`
+}`;
 
 export default function Home({ recipes, settings, articles, talks, projects }) {
-  
-  const [activeCarouselItem, useActiveCarouselItem] = useState(2);
-
-  
   const showNextItem = () => {
     const scrollWidth = window.innerWidth > 1312 ? 1312 : window.innerWidth;
     console.log(scrollWidth);
-    const currentPosition = document.querySelector('#carousel').scrollLeft;
+    const currentPosition = document.querySelector("#carousel").scrollLeft;
 
-    document.querySelector('#carousel').scrollLeft = currentPosition + scrollWidth;
-  }
-  
+    document.querySelector("#carousel").scrollLeft =
+      currentPosition + scrollWidth;
+  };
+
   const showPrevItem = () => {
     const scrollWidth = window.innerWidth > 1312 ? 1312 : window.innerWidth;
     console.log(scrollWidth);
-    const currentPosition = document.querySelector('#carousel').scrollLeft;
+    const currentPosition = document.querySelector("#carousel").scrollLeft;
 
-    document.querySelector('#carousel').scrollLeft = currentPosition - scrollWidth;
-  }
+    document.querySelector("#carousel").scrollLeft =
+      currentPosition - scrollWidth;
+  };
 
   return (
     <>
@@ -83,7 +74,11 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
           <div className="carousel" id="carousel">
             {articles?.length > 0 &&
               articles.map((article, index) => (
-                <article key={article._id} className="carousel__item" id={`article-${index}`}>
+                <article
+                  key={article._id}
+                  className="carousel__item"
+                  id={`article-${index}`}
+                >
                   <p>
                     {article.publication} / {article.datePublished}
                   </p>
@@ -102,11 +97,15 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
             talks.map((talk) => (
               <article key={talk._id}>
                 {/* <img src={urlFor(talk.image).url()} alt={talk.title} /> */}
-                <p>{talk.conference} / {talk.date}</p>
-                <h3><a href={talk.url} target="_blank" rel="noreferrer"></a>{talk.title}</h3>
+                <p>
+                  {talk.conference} / {talk.date}
+                </p>
+                <h3>
+                  <a href={talk.url} target="_blank" rel="noreferrer"></a>
+                  {talk.title}
+                </h3>
               </article>
-            ))
-          }
+            ))}
         </section>
         <section className="projects">
           <h2>side projects</h2>
@@ -114,38 +113,23 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
             projects.map((project) => (
               <article key={project._id}>
                 {/* <img src={urlFor(talk.image).url()} alt={talk.title} /> */}
-                <h3><a href={project.url} target="_blank" rel="noreferrer"></a>{project.name}</h3>
+                <h3>
+                  <a href={project.url} target="_blank" rel="noreferrer"></a>
+                  {project.name}
+                </h3>
                 <p>{project.description}</p>
               </article>
-            ))
-          }
+            ))}
         </section>
       </main>
-
-      {/* <h1>Welcome to Mikolaj kitchen</h1>
-
-      <ul>
-        {recipes?.length > 0 &&
-          recipes.map((recipe) => (
-            <li key={recipe._id}>
-              <Link href={`/recipes/${recipe.slug.current}`}>
-                <a>
-                  <img src={urlFor(recipe.mainImage).url()} alt="" />
-                  <span>{recipe.name}</span>
-                </a>
-              </Link>
-            </li>
-          ))}
-      </ul> */}
     </>
   );
 }
 
 export async function getStaticProps() {
-  const recipes = await sanityClient.fetch(recipesQuery);
   const settings = await sanityClient.fetch(settingsQuery);
   const articles = await sanityClient.fetch(articlesQuery);
   const talks = await sanityClient.fetch(talksQuery);
   const projects = await sanityClient.fetch(projectsQuery);
-  return { props: { recipes, settings, articles, talks, projects } };
+  return { props: { settings, articles, talks, projects } };
 }
