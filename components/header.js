@@ -1,8 +1,13 @@
+import Logo from "./logo";
+
 export default function Header({ data: settings }) {
   return (
     <>
       <header>
-        <div className="logo">{settings?.title}</div>
+        <div className="logo">
+          {settings?.title}
+          <Logo />
+        </div>
       </header>
       <nav>
         <div>
