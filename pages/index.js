@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
-import { sanityClient, urlFor } from "../lib/sanity";
+import { PortableText, sanityClient, urlFor } from "../lib/sanity";
 import Header from "../components/header";
 import { useState } from "react";
 import ReactDOM from "react-dom";
@@ -66,7 +66,9 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
       <Header data={settings} />
 
       <main>
-        <section className="blurb">{settings.blurb}</section>
+        <section className="blurb">
+          <PortableText blocks={settings?.blurb} />
+        </section>
         <section className="articles">
           <h2>articles</h2>
           <button onClick={showPrevItem}>prev</button>
@@ -79,8 +81,8 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
                   className="carousel__item"
                   id={`article-${index}`}
                 >
-                  <p>
-                    {article.publication} / {article.datePublished}
+                  <p className="label">
+                    <a>{article.publication}</a> / {article.datePublished}
                   </p>
                   <h3>
                     <a href={article.url} target="_blank" rel="noreferrer">
@@ -97,8 +99,8 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
             talks.map((talk) => (
               <article key={talk._id}>
                 {/* <img src={urlFor(talk.image).url()} alt={talk.title} /> */}
-                <p>
-                  {talk.conference} / {talk.date}
+                <p className="label">
+                  <a>{talk.conference}</a> / {talk.date}
                 </p>
                 <h3>
                   <a href={talk.url} target="_blank" rel="noreferrer"></a>
@@ -117,7 +119,7 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
                   <a href={project.url} target="_blank" rel="noreferrer"></a>
                   {project.name}
                 </h3>
-                <p>{project.description}</p>
+                <p className="label">{project.description}</p>
               </article>
             ))}
         </section>

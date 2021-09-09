@@ -17,7 +17,8 @@ export default {
     {
       name: "blurb",
       title: "Blurb",
-      type: "text",
+      type: "array",
+      of: [{ type: "block" }],
     },
     {
       name: "socialMedia",
