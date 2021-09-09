@@ -1,3 +1,7 @@
+:root {
+  --width: 1312px;
+}
+
 html,
 body {
   padding: 0;
@@ -17,7 +21,7 @@ a {
 }
 
 .container {
-  max-width: 1312px;
+  max-width: var(--width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -25,7 +29,13 @@ a {
   grid-template-areas:
     "logo socials socials"
     "main main main";
-  background: tomato;
+}
+
+.container > * {
+  outline: 1px solid pink;
+}
+main > * {
+  border: 1px solid lightblue;
 }
 
 header {
@@ -35,7 +45,6 @@ header {
 .logo {
   width: 300px;
   height: 100px;
-  background: brown;
 }
 
 nav {
@@ -50,4 +59,42 @@ nav ul li {
 
 main {
   grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". blurb blurb"
+    "articles articles articles"
+    "talks talks talks"
+    "projects projects projects";
+}
+
+.carousel {
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-auto-columns: 33.33%;
+  grid-auto-flow: column;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.carousel__item {
+  scroll-snap-align: start;
+}
+
+.blurb {
+  grid-area: blurb;
+}
+
+.articles {
+  grid-area: articles;
+}
+
+.talks {
+  grid-area: talks;
+}
+
+.projects {
+  grid-area: projects;
 }

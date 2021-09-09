@@ -9,7 +9,7 @@ export default function Header({ data: settings }) {
           <ul>
             {settings.socialMedia?.length > 0 &&
               settings.socialMedia.map((socialMedium) => (
-                <li key="{socialMedium._id}">
+                <li key={socialMedium._key}>
                   <a href={socialMedium.url} target="_blank" rel="noreferrer">
                     {socialMedium.name}
                   </a>

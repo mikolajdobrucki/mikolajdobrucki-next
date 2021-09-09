@@ -15,8 +15,9 @@ export default {
       type: "string",
       options: {
         list: [
-          { title: "Smashing Magazine", value: "smashingmag" },
-          { title: "CSS Tricks", value: "csstricks" },
+          { title: "Smashing Magazine", value: "Smashing Magazine" },
+          { title: "CSS Tricks", value: "CSS Tricks" },
+          { title: "UX Collective", value: "UX Collective" },
         ],
       },
     },
