@@ -14,7 +14,7 @@ export default function Header({ data: settings }) {
           <ul>
             {settings.socialMedia?.length > 0 &&
               settings.socialMedia.map((socialMedium) => (
-                <li key={socialMedium._key}>
+                <li key={socialMedium._key} className="label">
                   <a href={socialMedium.url} target="_blank" rel="noreferrer">
                     {socialMedium.name}
                   </a>
