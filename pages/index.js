@@ -5,6 +5,7 @@ import { PortableText, sanityClient, urlFor } from "../lib/sanity";
 import Header from "../components/header";
 import { useState } from "react";
 import ReactDOM from "react-dom";
+import Carousel from "../components/carousel";
 
 const settingsQuery = `*[_type == "siteSettings"][0]{
   title,
@@ -37,24 +38,6 @@ const projectsQuery = `*[_type == "project"]{
 }`;
 
 export default function Home({ recipes, settings, articles, talks, projects }) {
-  const showNextItem = () => {
-    const scrollWidth = window.innerWidth > 1312 ? 1312 : window.innerWidth;
-    console.log(scrollWidth);
-    const currentPosition = document.querySelector("#carousel").scrollLeft;
-
-    document.querySelector("#carousel").scrollLeft =
-      currentPosition + scrollWidth;
-  };
-
-  const showPrevItem = () => {
-    const scrollWidth = window.innerWidth > 1312 ? 1312 : window.innerWidth;
-    console.log(scrollWidth);
-    const currentPosition = document.querySelector("#carousel").scrollLeft;
-
-    document.querySelector("#carousel").scrollLeft =
-      currentPosition - scrollWidth;
-  };
-
   return (
     <>
       <Head>
@@ -70,10 +53,7 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
           <PortableText blocks={settings?.blurb} />
         </section>
         <section className="articles">
-          <h2>articles</h2>
-          <button onClick={showPrevItem}>prev</button>
-          <button onClick={showNextItem}>next</button>
-          <div className="carousel" id="carousel">
+          <Carousel name="articles">
             {articles?.length > 0 &&
               articles.map((article, index) => (
                 <article
@@ -91,23 +71,24 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
                   </h3>
                 </article>
               ))}
-          </div>
+          </Carousel>
         </section>
         <section className="talks">
-          <h2>talks</h2>
-          {talks?.length > 0 &&
-            talks.map((talk) => (
-              <article key={talk._id}>
-                {/* <img src={urlFor(talk.image).url()} alt={talk.title} /> */}
-                <p className="label">
-                  <a>{talk.conference}</a> / {talk.date}
-                </p>
-                <h3>
-                  <a href={talk.url} target="_blank" rel="noreferrer"></a>
-                  {talk.title}
-                </h3>
-              </article>
-            ))}
+          <Carousel name="talks">
+            {talks?.length > 0 &&
+              talks.map((talk) => (
+                <article key={talk._id}>
+                  {/* <img src={urlFor(talk.image).url()} alt={talk.title} /> */}
+                  <p className="label">
+                    <a>{talk.conference}</a> / {talk.date}
+                  </p>
+                  <h3>
+                    <a href={talk.url} target="_blank" rel="noreferrer"></a>
+                    {talk.title}
+                  </h3>
+                </article>
+              ))}
+          </Carousel>
         </section>
         <section className="projects">
           <h2>side projects</h2>
