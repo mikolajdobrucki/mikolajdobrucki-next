@@ -1,0 +1,46 @@
+@keyframes type {
+  from,
+  5%,
+  27.5%,
+  to {
+    transform: translateX(-48%);
+  }
+
+  11%,
+  27% {
+    transform: translateX(-43%);
+  }
+
+  12.5%,
+  26.5% {
+    transform: translateX(-33.5%);
+  }
+
+  13%,
+  26% {
+    transform: translateX(-22%);
+  }
+
+  14%,
+  25.5% {
+    transform: translateX(-5%);
+  }
+
+  14.4%,
+  25% {
+    transform: translateX(1%);
+  }
+}
+
+.logo_full {
+  max-width: 100%;
+  fill: var(--color-front);
+}
+
+.logo_full_mask {
+  transform: translateX(-38%);
+  animation: type 12s step-end infinite;
+}
+.logo_full_maskshape {
+  fill: var(--color-back);
+}

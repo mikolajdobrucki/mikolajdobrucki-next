@@ -1,0 +1,62 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.background {
+  position: fixed;
+  width: 80vh;
+  height: 80vh;
+  top: 50%;
+  left: 50%;
+  margin-left: -40vh;
+  margin-top: -40vh;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  animation: rotate calc(var(--time) * 500) linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ellypse {
+  border-radius: 50%;
+  filter: blur(150px);
+  will-change: transform;
+}
+
+.ellypse--yellow {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 0;
+  left: 0;
+  background: #de9830;
+  transform-origin: 60% 60%;
+  animation: rotate calc(var(--time) * 20) linear infinite;
+}
+
+.ellypse--red {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  right: 0;
+  top: 25%;
+  background: #df185b;
+  transform-origin: 40% 40%;
+  animation: rotate calc(var(--time) * 30) linear infinite;
+}
+
+.ellypse--purple {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  left: 20%;
+  bottom: 0;
+  background: #4035e9;
+  transform-origin: 20% 20%;
+  animation: rotate calc(var(--time) * 50) linear infinite;
+}

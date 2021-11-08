@@ -7,6 +7,7 @@ import siteSettings from "./siteSettings";
 import article from "./article";
 import talk from "./talk";
 import project from "./project";
+import sketchbook from "./sketchbook";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,6 +20,7 @@ export default createSchema({
     article,
     talk,
     project,
+    sketchbook,
     siteSettings,
   ]),
 });

@@ -1,0 +1,20 @@
+.lines {
+  border: 1px solid var(--color-muted);
+  opacity: 0.2;
+  border-width: 0 1px;
+  height: 100000px;
+  margin-bottom: -100000px;
+  pointer-events: none;
+}
+
+.lines-left {
+  grid-area: lines-left;
+}
+
+.lines-centre {
+  grid-area: lines-centre;
+}
+
+.lines-centre {
+  grid-area: lines-centre;
+}

@@ -3,6 +3,9 @@ import Logo from "./logo";
 export default function Header({ data: settings }) {
   return (
     <>
+      <div className="lines"></div>
+      <div className="lines"></div>
+      <div className="lines"></div>
       <header>
         <div className="logo">
           {settings?.title}

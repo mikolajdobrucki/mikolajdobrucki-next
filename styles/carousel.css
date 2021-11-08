@@ -1,0 +1,80 @@
+.carousel__main {
+  --column: calc(33.33% - 21px);
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: var(--column) var(--column) var(--column);
+  grid-auto-columns: var(--column);
+  grid-auto-flow: column;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  grid-gap: 32px;
+}
+
+@media (max-width: 756px) {
+  .carousel__main {
+    --column: calc(50% - 16px);
+    grid-template-columns: var(--column) var(--column);
+  }
+}
+
+@media (max-width: 512px) {
+  .carousel__main {
+    --column: 100%;
+  }
+}
+
+.carousel__item {
+  scroll-snap-align: start;
+}
+
+.carousel__main img {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  filter: grayscale(1);
+}
+
+.carousel__main a:hover img {
+  filter: grayscale(0);
+}
+
+.carousel__header {
+  display: flex;
+  align-items: baseline;
+}
+
+.carousel__header h2 {
+  flex-grow: 1;
+}
+
+.carousel__button {
+  background: transparent;
+  border: 0;
+  appearance: none;
+  position: relative;
+  padding: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: var(--time);
+}
+
+.carousel__button:hover {
+  transform: scaleX(1.5);
+}
+
+.carousel__button:after {
+  display: block;
+  content: "";
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--color-front);
+  transform: rotate(45deg) translate(-2px, 2px);
+  border-width: 1px 1px 0 0;
+}
+.carousel__button:hover:after {
+  border-width: 2px 2px 0 0;
+}
+
+.carousel__button--prev:after {
+  transform: rotate(-135deg) translate(-2px, 2px);
+}
