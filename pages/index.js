@@ -113,12 +113,8 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
                 projects.map((project) => (
                   <article key={project._id}>
                     <h3>
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                      {project.name}
+                      <a href={project.url} target="_blank" rel="noreferrer">
+                        {project.name}
                       </a>
                     </h3>
                     <p className="label">{project.description}</p>
@@ -149,7 +145,7 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
             </div>
           </section>
           <footer className="label">
-            © 2021 Mikolaj Dobrucki
+            © 2022 Mikolaj Dobrucki
             <br />
             All rights reserved.
           </footer>
