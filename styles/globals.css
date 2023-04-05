@@ -136,7 +136,7 @@ h3 a {
 }
 
 h3 a:hover {
-  font-variation-settings: "wght" 700;
+  opacity: 0.5;
 }
 
 a img {
@@ -207,8 +207,8 @@ a img:hover {
 }
 
 .secondary {
-  background: var(--black);
-  color: var(--color-back);
+  background: var(--color-black);
+  color: var(--color-light);
   position: relative;
 }
 
@@ -218,18 +218,19 @@ a img:hover {
   padding: calc(var(--space) * 2) calc(var(--space) / 3);
 }
 
-.sketchbook__grid {
-  /* display: grid;
-  grid-template-columns: var(--default-grid);
-  grid-template-rows: auto;
-  grid-gap: calc(var(--space) / 3); */
-  column-count: var(--default-grid-count);
-  column-gap: calc(var(--space) / 3);
-  margin: 0 0 var(--space);
+@media (prefers-color-scheme: dark) {
+  .secondary {
+    background: transparent;
+  }
+  .secondary__content {
+    padding-top: 0;
+  }
 }
 
-.sketchbook__grid img {
-  width: 100%;
-  height: auto;
-  margin-bottom: calc(var(--space) / 3);
+.contact {
+  padding-bottom: calc(var(--space) * 2);
+}
+
+.contact h3 {
+  margin-bottom: 8px;
 }

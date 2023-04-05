@@ -27,19 +27,22 @@
   --space: 96px;
   --default-grid: 1fr 1fr 1fr;
   --default-grid-count: 3;
-  --black: #000;
   --font-serif: Playfair, serif;
   --font-sans-serif: IBM Plex Sans, sans-serif;
   --font-display: Space Grotesk, sans-serif;
-  --time: 0.2s;
-  --color-front: #2b2826;
-  --color-back: #e8e6e4;
-  --color-muted: #948e8a;
+  --time: 0.1s;
+  --color-black: #000;
+  --color-dark: #2b2826;
+  --color-light: #e8e6e4;
+  --color-dark-muted: #948e8a;
+  --color-back: var(--color-light);
+  --color-front: var(--color-dark);
+  --color-muted: var(--color-dark-muted);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-back: #2b2826;
+    --color-back: var(--color-black);
     --color-front: #e8e6e4;
     --color-muted: #948e8a;
   }

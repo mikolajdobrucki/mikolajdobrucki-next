@@ -17,7 +17,6 @@
   margin-top: -40vh;
   opacity: 0.5;
   mix-blend-mode: multiply;
-  animation: rotate calc(var(--time) * 500) linear infinite;
   pointer-events: none;
   z-index: 0;
 }
@@ -42,7 +41,6 @@
   left: 0;
   background: #de9830;
   transform-origin: 60% 60%;
-  animation: rotate calc(var(--time) * 20) linear infinite;
 }
 
 .ellypse--red {
@@ -53,7 +51,6 @@
   top: 25%;
   background: #df185b;
   transform-origin: 40% 40%;
-  animation: rotate calc(var(--time) * 30) linear infinite;
 }
 
 .ellypse--purple {
@@ -64,5 +61,4 @@
   bottom: 0;
   background: #4035e9;
   transform-origin: 20% 20%;
-  animation: rotate calc(var(--time) * 50) linear infinite;
 }
