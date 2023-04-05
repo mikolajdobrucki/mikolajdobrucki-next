@@ -212,6 +212,10 @@ a img:hover {
   position: relative;
 }
 
+.secondary .label a {
+  color: var(--color-light);
+}
+
 .secondary__content {
   max-width: var(--width);
   margin: 0 auto;
