@@ -9,8 +9,7 @@ import Carousel from "../components/carousel";
 const settingsQuery = `*[_type == "siteSettings"][0]{
   title,
   socialMedia,
-  blurb,
-  sketchbook
+  blurb
 }`;
 
 const articlesQuery = `*[_type == "article"]  | order(datePublished desc) {
@@ -37,13 +36,51 @@ const projectsQuery = `*[_type == "project"]{
   url
 }`;
 
-export default function Home({ recipes, settings, articles, talks, projects }) {
+export default function Home({ settings, articles, talks, projects }) {
   return (
     <div className="page">
       <div className="background">
-        <div className="ellypse ellypse--yellow"></div>
-        <div className="ellypse ellypse--red"></div>
-        <div className="ellypse ellypse--purple"></div>
+        <svg
+          width="1084"
+          height="1230"
+          viewBox="0 0 1084 1230"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_601_10024)">
+            <g filter="url(#filter0_f_601_10024)">
+              <circle cx="445.5" cy="476.5" r="200.5" fill="#DE9830" />
+              <circle cx="686" cy="618" r="153" fill="#DF185B" />
+              <circle cx="451" cy="821" r="133" fill="#4035E9" />
+            </g>
+          </g>
+          <defs>
+            <filter
+              id="filter0_f_601_10024"
+              x="-112"
+              y="-81"
+              width="1308"
+              height="1392"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feGaussianBlur
+                stdDeviation="178.5"
+                result="effect1_foregroundBlur_601_10024"
+              />
+            </filter>
+            <clipPath id="clip0_601_10024">
+              <rect width="1084" height="1230" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
       </div>
       <div className="container">
         <Head>
@@ -126,26 +163,17 @@ export default function Home({ recipes, settings, articles, talks, projects }) {
       </div>
       <div className="secondary">
         <div className="secondary__content">
-          <section className="sketchbook">
-            <h2>sketchbook</h2>
-            <div className="sketchbook__grid">
-              {settings.sketchbook?.length > 0 &&
-                settings?.sketchbook.map((sketch) => (
-                  <article key={sketch._id}>
-                    <img
-                      src={urlFor(sketch).width(320).url()}
-                      srcSet={`
-                          ${urlFor(sketch).width(320).url()} 320w,
-                          ${urlFor(sketch).width(640).url()} 640w
-                          `}
-                      alt={sketch.caption}
-                    />
-                  </article>
-                ))}
-            </div>
+          <section className="contact">
+            <h2>say hi</h2>
+            <h3>To get in touch, you can contact me at</h3>
+            <p className="label">
+              <a href="mailto:contact@mikolajdobrucki.com">
+                contact@mikolajdobrucki.com
+              </a>
+            </p>
           </section>
           <footer className="label">
-            © 2022 Mikolaj Dobrucki
+            © 2023 Mikolaj Dobrucki
             <br />
             All rights reserved.
           </footer>
